@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Big Data Weather Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+</head>
+
+<body id="main">
+    <!-- Map and chart containers -->
+    <div id='mainChart'></div>
+    <div id='rightUpChart'></div>
+    <div id='rightDownChart'></div>
+
+    <!-- Station context menu -->
+    <div id="contextMenu" style="display:none; position:absolute; background-color:white; border:1px solid #ccc; padding:10px; z-index:1000;">
+        <p id="siteName"></p>
+        <p id="siteId"></p>
+        <p>
+            <span id="siteCoords"></span>
+            <button id="copyCoordsBtn">Copy</button>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        // Initialize the two ECharts instances.
+        var lineChart = echarts.init(document.getElementById('rightUpChart'));
+        var comparisonChart = echarts.init(document.getElementById('rightDownChart'));
+
+        // Step 1: Calculate the average station coordinates for the map center.
+        // TODO: 1
+       
+
+        // Step 2: Create the map and add station markers and interactions.
+        function createMap(allData) {
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYmlhYm9ibyIsImEiOiJjamVvejdlNXQxZnBuMndtdWhiZHRuaTNpIn0.PIS9wtUxm_rz_IzF2WFD1g';
+            const map = new mapboxgl.Map({
+                container: 'mainChart',
+                style: 'mapbox://styles/mapbox/satellite-streets-v12',
+                center: getMapCenter(allData),
+                zoom: 4
+            });
+
+            // Add map effects after the style has loaded.
+            // TODO: 2
+
+
+
+            // Get the context-menu elements once for reuse.
+            const contextMenu = document.getElementById('contextMenu');
+            const stationNameElement = document.getElementById('siteName');
+            const stationIdElement = document.getElementById('siteId');
+            const stationCoordinatesElement = document.getElementById('siteCoords');
+            const copyCoordinatesButton = document.getElementById('copyCoordsBtn');
+
+            // Close the menu when the user clicks elsewhere.
+            document.body.addEventListener('click', () => {
+                contextMenu.style.display = 'none';
+            });
+
+            // Create one marker for each station.
+            for (const station of allData) {
+                const marker = new mapboxgl.Marker({ color: '#A41623' })
+                    .setLngLat([station.lon, station.lat])
+                    .addTo(map);
+
+                // Show station details on right-click.
+                // TODO: 3
+
+                
+
+                // Load this station's data and update both charts.
+                marker.getElement().addEventListener('click', function () {
+                    $.getJSON("data/" + station.filename, function (data) {
+                        createTemperatureChart(data, lineChart);
+                        createWeatherComparisonChart(data, comparisonChart);
+                    });
+                });
+            }
+        }
+
+        // Step 3: Build the station's temperature chart.
+        function createTemperatureChart(weatherRecords, chart) {
+            // Prepare the date and temperature series.
+            var dateList = [];
+            var averageTemperatureList = [];
+            var maximumTemperatureList = [];
+            var minimumTemperatureList = [];
+
+            for (var index = 0; index < weatherRecords.length; index++) {
+                var record = weatherRecords[index];
+                dateList.push(record["DATE"]);
+                averageTemperatureList.push(record["TEMP"]);
+                maximumTemperatureList.push(record["MAX"]);
+                minimumTemperatureList.push(record["MIN"]);
+            }
+
+            // Use the first record's station name in the chart title.
+            let stationName = "";
+            if (weatherRecords.length > 0) {
+                stationName = weatherRecords[0]['NAME'];
+            }
+
+            var option = {
+                title: {
+                    text: stationName + " Monthly Temperature(°F)",
+                    textStyle: {
+                        color: '#A41623'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        animation: false
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: dateList
+                },
+                yAxis: {
+                    type: 'value',
+                    // Optional: set fixed temperature bounds.
+                    // min: -10,
+                    // max: 80
+                },
+                series: [
+                    // Optional: add the average temperature series.
+                    // {
+                    //     name: 'Average',
+                    //     data: averageTemperatureList,
+                    //     type: "line"
+                    // },
+                    {
+                        name: 'Highest',
+                        data: maximumTemperatureList,
+                        type: "line",
+                        lineStyle: {
+                            color: '#f73528'
+                        },
+                        itemStyle: {
+                            color: '#f73528'
+                        },
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: 'Max' },
+                            ]
+                        }
+                    },
+                    {
+                        name: 'Lowest',
+                        data: minimumTemperatureList,
+                        type: "line",
+                        lineStyle: {
+                            color: '#111abd'
+                        },
+                        markPoint: {
+                            itemStyle: {
+                                color: '#111abd'
+                            },
+                            data: [
+                                { type: 'min', name: 'Min' },
+                            ]
+                        }
+                    }
+                ]
+            };
+
+            // Render the chart with the prepared options.
+            chart.setOption(option);
+        }
+
+        // Step 4: Compare wind speed and rainfall in linked charts.
+        function createWeatherComparisonChart(weatherRecords, chart) {
+            // Prepare the date, wind speed, and rainfall series.
+            var dateList = [];
+            var windSpeedList = [];
+            var rainfallList = [];
+
+            for (var index = 0; index < weatherRecords.length; index++) {
+                var record = weatherRecords[index];
+                dateList.push(record["DATE"]);
+                windSpeedList.push(record["WDSP"]);
+                rainfallList.push(record["PRCP"]);
+            }
+
+            const option = {
+                title: {
+                    text: 'Rainfall vs Wind speed',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        animation: false
+                    }
+                },
+                legend: {
+                    data: ['Wind speed', 'Rainfall'],
+                    left: 10
+                },
+                axisPointer: {
+                    link: [
+                        {
+                            xAxisIndex: 'all'
+                        }
+                    ]
+                },
+                dataZoom: [
+                    {
+                        show: true,
+                        realtime: true,
+                        start: 30,
+                        end: 70,
+                        xAxisIndex: [0, 1]
+                    },
+                    {
+                        type: 'inside',
+                        realtime: true,
+                        start: 30,
+                        end: 70,
+                        xAxisIndex: [0, 1]
+                    }
+                ],
+                grid: [
+                    {
+                        left: 60,
+                        right: 50,
+                        height: '35%'
+                    },
+                    {
+                        left: 60,
+                        right: 50,
+                        top: '55%',
+                        height: '35%'
+                    }
+                ],
+                xAxis: [
+                    {
+                        type: 'category',
+                        boundaryGap: false,
+                        axisLine: { onZero: true },
+                        data: dateList
+                    },
+                    {
+                        gridIndex: 1,
+                        type: 'category',
+                        boundaryGap: false,
+                        axisLine: { onZero: true },
+                        data: dateList,
+                        position: 'top'
+                    }
+                ],
+                yAxis: [
+                    {
+                        name: 'Wind speed(knots)',
+                        type: 'value',
+                        // Optional: set a fixed wind speed maximum.
+                        // max: 500
+                    },
+                    {
+                        gridIndex: 1,
+                        name: 'Rainfall(inches)',
+                        type: 'value',
+                        inverse: true
+                    }
+                ],
+                series: [
+                    {
+                        name: 'Wind speed',
+                        type: 'line',
+                        symbolSize: 8,
+                        // prettier-ignore
+                        data: windSpeedList
+                    },
+                    {
+                        name: 'Rainfall',
+                        type: 'line',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        symbolSize: 8,
+                        // prettier-ignore
+                        data: rainfallList
+                    }
+                ]
+            };
+            // Render the comparison charts.
+            chart.setOption(option);
+        }
+
+        // Step 5: Add 3D buildings beneath the map labels.
+        // https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/
+        function add3DBuildings(map) {
+            // TODO: 4
+            //...
+        }
+
+
+        // Step 6: Apply dusk lighting and a zoom-based snow effect.
+        // https://docs.mapbox.com/mapbox-gl-js/example/snow/
+        function addSnowEffectOnMap(map) {
+            // TODO: 5
+            //...
+        }
+
+        // Step 7: Add elevation data and enable 3D terrain.
+        // https://docs.mapbox.com/mapbox-gl-js/example/add-terrain/
+        function add3DTerrain(map) {
+            // TODO: 6
+            //...
+        }
+
+        // Step 8: Load station coordinates, then initialize the map and empty charts.
+        // Data source: OpenWeather (https://openweathermap.org/).
+        $.getJSON("coordinates.json", function (allData) {
+            console.log("We have " + allData.length + " stations.");
+
+            createMap(allData);
+            createTemperatureChart([], lineChart);
+            createWeatherComparisonChart([], comparisonChart);
+        });
+    </script>
+</body>
+
+</html>

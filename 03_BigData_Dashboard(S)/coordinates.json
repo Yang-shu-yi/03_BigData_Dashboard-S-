@@ -1,0 +1,422 @@
+[
+    {
+        "filename": "01001099999.json",
+        "station": 1001099999,
+        "name": "JAN MAYEN NOR NAVY, NO",
+        "lat": 70.9333333,
+        "lon": -8.6666667
+    },
+    {
+        "filename": "01001499999.json",
+        "station": 1001499999,
+        "name": "SORSTOKKEN, NO",
+        "lat": 59.791925,
+        "lon": 5.34085
+    },
+    {
+        "filename": "01002099999.json",
+        "station": 1002099999,
+        "name": "VERLEGENHUKEN, NO",
+        "lat": 80.05,
+        "lon": 16.25
+    },
+    {
+        "filename": "01003099999.json",
+        "station": 1003099999,
+        "name": "HORNSUND, NO",
+        "lat": 77.0,
+        "lon": 15.5
+    },
+    {
+        "filename": "01006099999.json",
+        "station": 1006099999,
+        "name": "EDGEOYA, NO",
+        "lat": 78.25,
+        "lon": 22.8166666
+    },
+    {
+        "filename": "01007099999.json",
+        "station": 1007099999,
+        "name": "NY ALESUND, SV",
+        "lat": 78.9166666,
+        "lon": 11.9333333
+    },
+    {
+        "filename": "01008099999.json",
+        "station": 1008099999,
+        "name": "LONGYEAR, SV",
+        "lat": 78.246111,
+        "lon": 15.465556
+    },
+    {
+        "filename": "01009099999.json",
+        "station": 1009099999,
+        "name": "KARL XII OYA, SV",
+        "lat": 80.65,
+        "lon": 25.0
+    },
+    {
+        "filename": "01010099999.json",
+        "station": 1010099999,
+        "name": "ANDOYA, NO",
+        "lat": 69.2925,
+        "lon": 16.144167
+    },
+    {
+        "filename": "01011099999.json",
+        "station": 1011099999,
+        "name": "KVITOYA, SV",
+        "lat": 80.0666666,
+        "lon": 31.5
+    },
+    {
+        "filename": "01015099999.json",
+        "station": 1015099999,
+        "name": "HEKKINGEN FYR, NO",
+        "lat": 69.6,
+        "lon": 17.8333333
+    },
+    {
+        "filename": "01016099999.json",
+        "station": 1016099999,
+        "name": "KONGSOYA, NO",
+        "lat": 78.9333333,
+        "lon": 28.9
+    },
+    {
+        "filename": "01017099999.json",
+        "station": 1017099999,
+        "name": "AKSELOYA, SV",
+        "lat": 77.6833333,
+        "lon": 14.7833333
+    },
+    {
+        "filename": "01020099999.json",
+        "station": 1020099999,
+        "name": "SORKAPPOYA, SV",
+        "lat": 76.4833333,
+        "lon": 16.55
+    },
+    {
+        "filename": "01023099999.json",
+        "station": 1023099999,
+        "name": "BARDUFOSS, NO",
+        "lat": 69.055758,
+        "lon": 18.540356
+    },
+    {
+        "filename": "01023199999.json",
+        "station": 1023199999,
+        "name": "DRAUGEN, NO",
+        "lat": 64.35,
+        "lon": 7.8
+    },
+    {
+        "filename": "01025099999.json",
+        "station": 1025099999,
+        "name": "TROMSO, NO",
+        "lat": 69.683333,
+        "lon": 18.918919
+    },
+    {
+        "filename": "01026099999.json",
+        "station": 1026099999,
+        "name": "TROMSO, NO",
+        "lat": 69.65,
+        "lon": 18.9333333
+    },
+    {
+        "filename": "01027099999.json",
+        "station": 1027099999,
+        "name": "TROMSO HOLT, NO",
+        "lat": 69.65,
+        "lon": 18.9
+    },
+    {
+        "filename": "01028099999.json",
+        "station": 1028099999,
+        "name": "BJORNOYA ISLAND, NO",
+        "lat": 74.5166667,
+        "lon": 19.0166667
+    },
+    {
+        "filename": "01030099999.json",
+        "station": 1030099999,
+        "name": "KISTEFJELL, NO",
+        "lat": 69.2833333,
+        "lon": 18.1333333
+    },
+    {
+        "filename": "01033099999.json",
+        "station": 1033099999,
+        "name": "TORSVAG FYR, NO",
+        "lat": 70.25,
+        "lon": 19.5
+    },
+    {
+        "filename": "01035099999.json",
+        "station": 1035099999,
+        "name": "LYNGEN GJERDVASSBU, NO",
+        "lat": 69.5666666,
+        "lon": 20.1
+    },
+    {
+        "filename": "01037099999.json",
+        "station": 1037099999,
+        "name": "SKIBOTN 2, NO",
+        "lat": 69.3833333,
+        "lon": 20.2833333
+    },
+    {
+        "filename": "01042099999.json",
+        "station": 1042099999,
+        "name": "HASVIK SLUSKFJELLET, NO",
+        "lat": 70.6,
+        "lon": 22.45
+    },
+    {
+        "filename": "01043099999.json",
+        "station": 1043099999,
+        "name": "ROGNSUNDET, NO",
+        "lat": 70.4166666,
+        "lon": 22.8166666
+    },
+    {
+        "filename": "01044099999.json",
+        "station": 1044099999,
+        "name": "HASVIK, NO",
+        "lat": 70.486675,
+        "lon": 22.139744
+    },
+    {
+        "filename": "01045099999.json",
+        "station": 1045099999,
+        "name": "NORDSTRAUM I KVAENANGEN, NO",
+        "lat": 69.8333333,
+        "lon": 21.8833333
+    },
+    {
+        "filename": "01046099999.json",
+        "station": 1046099999,
+        "name": "SORKJOSEN, NO",
+        "lat": 69.786839,
+        "lon": 20.959444
+    },
+    {
+        "filename": "01047099999.json",
+        "station": 1047099999,
+        "name": "KAUTOKEINO II, NO",
+        "lat": 69.0166667,
+        "lon": 23.0666667
+    },
+    {
+        "filename": "01049099999.json",
+        "station": 1049099999,
+        "name": "ALTA, NO",
+        "lat": 69.976111,
+        "lon": 23.371667
+    },
+    {
+        "filename": "01052099999.json",
+        "station": 1052099999,
+        "name": "HAMMERFEST AIRPORT, NO",
+        "lat": 70.6833333,
+        "lon": 23.6833333
+    },
+    {
+        "filename": "01055099999.json",
+        "station": 1055099999,
+        "name": "FRUHOLMEN FYR, NO",
+        "lat": 71.1,
+        "lon": 23.9833333
+    },
+    {
+        "filename": "01058099999.json",
+        "station": 1058099999,
+        "name": "SUOLOVUOPMI LULIT, NO",
+        "lat": 69.5666666,
+        "lon": 23.5333333
+    },
+    {
+        "filename": "01059099999.json",
+        "station": 1059099999,
+        "name": "BANAK, NO",
+        "lat": 70.068814,
+        "lon": 24.973489
+    },
+    {
+        "filename": "01062099999.json",
+        "station": 1062099999,
+        "name": "HOPEN ISLAND, NO",
+        "lat": 76.5,
+        "lon": 25.0666667
+    },
+    {
+        "filename": "01065099999.json",
+        "station": 1065099999,
+        "name": "KARASJOK, NO",
+        "lat": 69.4666666,
+        "lon": 25.5166666
+    },
+    {
+        "filename": "01068099999.json",
+        "station": 1068099999,
+        "name": "HONNINGSVAG VALAN, NO",
+        "lat": 71.0166667,
+        "lon": 25.9833333
+    },
+    {
+        "filename": "01074099999.json",
+        "station": 1074099999,
+        "name": "MEHAMN, NO",
+        "lat": 71.0333333,
+        "lon": 27.8333333
+    },
+    {
+        "filename": "01076099999.json",
+        "station": 1076099999,
+        "name": "TANABRU, NO",
+        "lat": 70.2166666,
+        "lon": 28.1666666
+    },
+    {
+        "filename": "01078099999.json",
+        "station": 1078099999,
+        "name": "SLETTNES FYR, NO",
+        "lat": 71.1,
+        "lon": 28.2333333
+    },
+    {
+        "filename": "01082099999.json",
+        "station": 1082099999,
+        "name": "NYRUD, NO",
+        "lat": 69.15,
+        "lon": 29.25
+    },
+    {
+        "filename": "01083099999.json",
+        "station": 1083099999,
+        "name": "BERLEVAG, NO",
+        "lat": 70.8666667,
+        "lon": 29.0333333
+    },
+    {
+        "filename": "01084099999.json",
+        "station": 1084099999,
+        "name": "PASVIK, NO",
+        "lat": 69.45,
+        "lon": 30.0333333
+    },
+    {
+        "filename": "01086099999.json",
+        "station": 1086099999,
+        "name": "BATSFJORD, NO",
+        "lat": 70.600256,
+        "lon": 29.692678
+    },
+    {
+        "filename": "01087699999.json",
+        "station": 1087699999,
+        "name": "NORNE OIL PLATFORM, NO",
+        "lat": 66.0166666,
+        "lon": 8.0833333
+    },
+    {
+        "filename": "01087799999.json",
+        "station": 1087799999,
+        "name": "TROLL A OIL PLATFORM, NO",
+        "lat": 60.6333333,
+        "lon": 3.7166666
+    },
+    {
+        "filename": "01087899999.json",
+        "station": 1087899999,
+        "name": "SNORRE A OIL PLATFORM, NO",
+        "lat": 61.45,
+        "lon": 2.1333333
+    },
+    {
+        "filename": "01087999999.json",
+        "station": 1087999999,
+        "name": "SNORRE B OIL PLATFORM, NO",
+        "lat": 61.5333333,
+        "lon": 2.2
+    },
+    {
+        "filename": "01088099999.json",
+        "station": 1088099999,
+        "name": "VADSO, NO",
+        "lat": 70.0666667,
+        "lon": 29.85
+    },
+    {
+        "filename": "01088299999.json",
+        "station": 1088299999,
+        "name": "ROROS, NO",
+        "lat": 62.578411,
+        "lon": 11.342347
+    },
+    {
+        "filename": "01088699999.json",
+        "station": 1088699999,
+        "name": "SLEIPNER A OIL PLATFORM, NO",
+        "lat": 58.3666666,
+        "lon": 1.9
+    },
+    {
+        "filename": "01088799999.json",
+        "station": 1088799999,
+        "name": "TROLL C OIL PLATFORM, NO",
+        "lat": 60.8858,
+        "lon": 3.6097
+    },
+    {
+        "filename": "01089099999.json",
+        "station": 1089099999,
+        "name": "HOYBUKTMOEN, NO",
+        "lat": 69.725611,
+        "lon": 29.893011
+    },
+    {
+        "filename": "01092099999.json",
+        "station": 1092099999,
+        "name": "MAKKAUR FYR, NO",
+        "lat": 70.7,
+        "lon": 30.0833333
+    },
+    {
+        "filename": "01098099999.json",
+        "station": 1098099999,
+        "name": "VARDO, NO",
+        "lat": 70.3666666,
+        "lon": 31.1
+    },
+    {
+        "filename": "01099099999.json",
+        "station": 1099099999,
+        "name": "VARDO AIRPORT SVARTNES, NO",
+        "lat": 70.355392,
+        "lon": 31.044889
+    },
+    {
+        "filename": "01102099999.json",
+        "station": 1102099999,
+        "name": "SKLINNA FYR, NO",
+        "lat": 65.2,
+        "lon": 11.0
+    },
+    {
+        "filename": "01102599999.json",
+        "station": 1102599999,
+        "name": "HEIDRUN, NO",
+        "lat": 65.3333333,
+        "lon": 7.3166667
+    },
+    {
+        "filename": "01105099999.json",
+        "station": 1105099999,
+        "name": "ROTVAER, NO",
+        "lat": 68.3666666,
+        "lon": 15.95
+    }
+]
